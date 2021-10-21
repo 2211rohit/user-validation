@@ -21,7 +21,8 @@ export default function SignInForm() {
 
   const handleSubmit = () => {
     if (name.trim() === "") {
-      return setNameError('Name Cannot be empty')
+      setNameError('Name Cannot be empty')
+      return
     }
     if (username.trim() === "") {
       return setNameError('Username Cannot be empty')
@@ -50,7 +51,14 @@ export default function SignInForm() {
   };
   return (
     <div className={styles.formCenter}>
-      <form className={styles.formFields} onSubmit={handleSubmit}>
+      <div className={styles.formTitle}>
+        <h4
+          className={styles.formTitleLink}
+        >
+          Sign up here!
+        </h4>
+      </div>
+      <div className={styles.formFields}>
         <div className={styles.formField}>
           <label className={styles.formFieldLabel}>
             Name
@@ -101,7 +109,6 @@ export default function SignInForm() {
             type="password"
             className={styles.formFieldInput}
             placeholder="Enter your password"
-            name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -109,11 +116,11 @@ export default function SignInForm() {
         </div>
 
         <div className={styles.formField}>
-          <button onClick={handleSubmit} className={styles.formFieldButton}>
+          <button onClick={() => handleSubmit()} className={styles.formFieldButton}>
             Validate
           </button>
         </div>
-      </form>
+      </div>
     </div>
   );
 }

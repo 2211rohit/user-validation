@@ -1,42 +1,34 @@
-import React, { Component } from "react";
-import { HashRouter as Router, Route, NavLink } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SignInForm from "./components/user-form";
-import LandingPage from "./components/landing-page";
+import TopNav from "./components/top-nav";
 import styles from "./App.module.scss";
+import SideNav from "./components/side-nav"
+import AboutUs from "./components/about-us"
+import ContactUs from "./components/contact-us"
+import Footer from "./components/footer";
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div className={styles.App}>
-          <div className={styles.appAside}>
-            <NavLink
-              to='/'
-              activeClassName={styles.sideNavTitleLinkActive}
-              className={styles.sideNavTitleLink}>
-              Home
-            </NavLink>
-            <NavLink
-              to='/about-us'
-              activeClassName={styles.sideNavTitleLinkActive}
-              className={styles.sideNavTitleLink}>
-              About Us
-            </NavLink>
-            <NavLink
-              to='/contact'
-              activeClassName={styles.sideNavTitleLinkActive}
-              className={styles.sideNavTitleLink}>
-              Contact Us
-            </NavLink>
-          </div>
-          <div className={styles.appForm}>
-            <LandingPage />
-            <Route path="/" component={SignInForm} />
-          </div>
+export default function App() {
+  return (
+    <Router>
+      <div className={styles.App}>
+        <TopNav />
+        <SideNav />
+        <div className={styles.appForm}>
+        <Switch>
+          <Route exact path="/">
+            <SignInForm />
+          </Route>
+          <Route exact path="/about-us">
+            <AboutUs />
+          </Route>
+          <Route exact path="/contact">
+            <ContactUs />
+          </Route>
+        </Switch>
         </div>
-      </Router>
-    );
-  }
+      </div>
+        <Footer/>
+    </Router>
+  );
 }
-
-export default App;
