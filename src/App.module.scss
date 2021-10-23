@@ -5,21 +5,22 @@
 }
 
 .appAside {
-  width: 15%;
+  width: 10vw;
   background-color: #191034;
   padding-top: 5%;
   display: flex;
   flex-direction: column;
   position: fixed;
+  z-index: 1;
   height: 100vh;
   top: 0;
   left: 0;
 }
 
 .appForm {
-  width: 80%;
+  width: 90vw;
   background-color: #ffffff;
-  padding: 25px 20%;
+  padding: 7vh 0 0 15vw;
   overflow: auto;
 }
 
@@ -28,21 +29,55 @@
   justify-content: flex-end;
   position: fixed;
   width: 100vw;
+  height: 5vh;
   top: 0;
   right: 0;
   background-color: #191034;
+  box-shadow: 5px 2px 30px 1px #000;
 }
 
 .pageFooter {
   position: fixed;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  width: 100vw;
+  display: grid;
+  grid-template-columns: 30vw 30vw 30vw;
+  justify-content: center;
+  width: 90vw;
   height: 10vh;
   bottom: 0;
   right: 0;
   background-color: #191034;
+  box-shadow: 5px 2px 30px 1px #000;
+	color: #fff;
+}
+
+.footerCompanyName {
+  color: #fff;
+  text-align: center;
+}
+
+.footerLinks {
+  display: grid;
+  grid-template-columns: 10vw 10vw 10vw;
+
+  a {
+    text-decoration: none;
+    color: #fff;
+    border-left: 1px solid #fff;
+    text-align: center;
+
+    &:first-child {
+      border: none
+    }
+  }
+}
+
+.footerInfo {
+  text-align: center;
+}
+
+.footerCompanyAbout{
+	color: #fff;
+	margin: auto;
 }
 
 .pageSwitcherItem {
@@ -138,6 +173,7 @@
   padding: 15px 70px;
   font-size: 0.8em;
   font-weight: 500;
+  cursor: pointer;
 }
 
 .formFieldLink {
