@@ -24,8 +24,8 @@ export default function SignInForm() {
   });
 
   const emailRegex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-  const usernameRegex = /^[a-z0-9_]+$/;
-  const nameRegex = /^[a-zA-Z ]+$/;
+  const usernameRegex = /^[a-z0-9._]{5,15}$/
+  const nameRegex = /^[a-zA-Z .']$/
 
   const handleNameChange = (value) => {
     const error = "Name can only contain characters";
